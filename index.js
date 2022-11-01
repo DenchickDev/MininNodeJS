@@ -8,7 +8,7 @@ const server = http.createServer((req, res) => {
     res.write('<h3>Hello form NodeJS</h3>');
     res.end(`
         <div style="background: red; width: 200px; height: 200px;">
-            <h1>Test</h1>
+            <h1>Test 1</h1>
         </div>
     `);
 });

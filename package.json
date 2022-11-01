@@ -4,7 +4,8 @@
   "description": "nodejs tutorial package",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
   "author": "Ivanov Denis <test@mail.ru>",
   "license": "ISC",

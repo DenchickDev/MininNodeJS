@@ -1,14 +1,26 @@
 {
   "name": "nodejs",
   "version": "1.0.0",
-  "description": "nodejs tutorial package",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js"
   },
-  "author": "Ivanov Denis <test@mail.ru>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DenchickDev/MininNodeJS.git"
+  },
+  "keywords": [],
+  "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DenchickDev/MininNodeJS/issues"
+  },
+  "homepage": "https://github.com/DenchickDev/MininNodeJS#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
   "devDependencies": {
     "nodemon": "^2.0.20"
   }

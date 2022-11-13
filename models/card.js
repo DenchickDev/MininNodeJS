@@ -15,8 +15,8 @@ class Card {
         const candidate = card.courses[idx];
 
         if (candidate) {
-            condidate.count++;
-            card.courses[idx] = condidate;
+            candidate.count++;
+            card.courses[idx] = candidate;
         } else {
             course.count = 1;
             card.courses.push(course);

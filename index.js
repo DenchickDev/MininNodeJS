@@ -30,7 +30,8 @@ const PORT = process.env.PORT || 3000
 async function start() {
   try {
     const password = '2PFIFbNUlrlKlk9N';
-    const url = `mongodb+srv://denis:2PFIFbNUlrlKlk9N@cluster0.kkzkdg5.mongodb.net/shop`;
+    // const url = `mongodb+srv://denis:2PFIFbNUlrlKlk9N@cluster1.t6p3sge.mongodb.net/?retryWrites=true&w=majority`;
+    const url = `mongodb://denis:2PFIFbNUlrlKlk9N@ac-z7bws4h-shard-00-00.wjjg1bb.mongodb.net:27017,ac-z7bws4h-shard-00-01.wjjg1bb.mongodb.net:27017,ac-z7bws4h-shard-00-02.wjjg1bb.mongodb.net:27017/?ssl=true&replicaSet=atlas-mf2uuk-shard-0&authSource=admin&retryWrites=true&w=majority`;
     await mongoose.connect(url, {useNewUrlParser: true})
     
     app.listen(PORT, () => {

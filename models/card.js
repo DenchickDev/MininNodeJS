@@ -61,7 +61,7 @@ class Card {
     }
 
     static async fetch() {
-        console.log(process.mainModule.filename, path.dirname(process.mainModule.filename));
+        // console.log(process.mainModule.filename, path.dirname(process.mainModule.filename));
         return new Promise((resolve, reject) => {
             fs.readFile(p, 'utf-8', (err, content) => {
                 if (err) {

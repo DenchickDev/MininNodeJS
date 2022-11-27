@@ -1,7 +1,7 @@
 const {Schema, model} = require('mongoose');
 
 const orderSchema = new Schema({
-    corses: [{
+    courses: [{
         course: {
             type: Object,
             required: true

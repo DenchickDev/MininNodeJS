@@ -26,16 +26,6 @@ app.engine('hbs', hbs.engine)
 app.set('view engine', 'hbs')
 app.set('views', 'views');
 
-app.use(async (req, res, next) => {
-  try {
-    const user = await User.findById('63833420db95b4cafb4f67f7');
-    req.user = user;
-    next();
-  } catch (e) {
-    console.log(e);
-  }
-})
-
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({extended: true}));
 app.use(session({
@@ -61,16 +51,16 @@ async function start() {
     const url = `mongodb://denis:2PFIFbNUlrlKlk9N@ac-z7bws4h-shard-00-00.wjjg1bb.mongodb.net:27017,ac-z7bws4h-shard-00-01.wjjg1bb.mongodb.net:27017,ac-z7bws4h-shard-00-02.wjjg1bb.mongodb.net:27017/?ssl=true&replicaSet=atlas-mf2uuk-shard-0&authSource=admin&retryWrites=true&w=majority`;
     await mongoose.connect(url, {useNewUrlParser: true})
     
-    const candidate = await User.findOne();
-    if (!candidate) {
-      const user = new User({
-        email: 'ltybc@mail.ru',
-        name: 'Denis',
-        cart: {items: []}
-      });
+    // const candidate = await User.findOne();
+    // if (!candidate) {
+    //   const user = new User({
+    //     email: 'ltybc@mail.ru',
+    //     name: 'Denis',
+    //     cart: {items: []}
+    //   });
 
-      await user.save();
-    }
+    //   await user.save();
+    // }
     
     app.listen(PORT, () => {
       console.log(`Server is running on port ${PORT}`)

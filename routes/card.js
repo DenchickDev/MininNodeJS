@@ -1,5 +1,6 @@
 const {Router} = require('express');
 const Course = require('../models/course');
+const auth = require('../middleware/auth')
 const router = Router();
 
 function mapCartItems(cart) {

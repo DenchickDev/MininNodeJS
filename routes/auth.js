@@ -1,5 +1,5 @@
 const {Router} = require('express')
-const bcryptjs = require('bcryptjs')
+const bcrypt = require('bcryptjs')
 const User = require('../models/user')
 const router = Router()
 
@@ -19,9 +19,6 @@ router.get('/logout', async (req, res) => {
 router.post('/login', async (req, res) => {
     try {
         const {email, password} = req.body;
-    } catch (e) {
-        console.log(e);
-
         const candidate = await User.findOne({ email });
 
         if (candidate) {
@@ -42,6 +39,8 @@ router.post('/login', async (req, res) => {
         } else {
             res.redirect('/auth/login#login');
         }
+    } catch (e) {
+        console.log(e);
     }
     
 })

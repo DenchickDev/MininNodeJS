@@ -14,8 +14,8 @@ const coursesRoutes = require('./routes/courses')
 const authRoutes = require('./routes/auth')
 const varMiddleware = require('./middleware/variables')
 const userMiddleware = require('./middleware/user')
+const keys = require('./keys');
 
-const MONGODB_URI = `mongodb://denis:2PFIFbNUlrlKlk9N@ac-z7bws4h-shard-00-00.wjjg1bb.mongodb.net:27017,ac-z7bws4h-shard-00-01.wjjg1bb.mongodb.net:27017,ac-z7bws4h-shard-00-02.wjjg1bb.mongodb.net:27017/?ssl=true&replicaSet=atlas-mf2uuk-shard-0&authSource=admin&retryWrites=true&w=majority`;
 const app = express()
 
 const hbs = exphbs.create({
@@ -28,7 +28,7 @@ const hbs = exphbs.create({
 
 const store = MongoStore({
   collection: 'sessions',
-  uri: MONGODB_URI
+  uri: keys.MONGODB_URI
 })
 
 app.engine('hbs', hbs.engine)
@@ -38,7 +38,7 @@ app.set('views', 'views');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({extended: true}));
 app.use(session({
-  secret: 'some secret value',
+  secret: keys.SESSION_SECRET,
   resave: false,
   saveUninitialized: false,
   store
@@ -61,7 +61,7 @@ async function start() {
   try {
     const password = '2PFIFbNUlrlKlk9N';
     // const url = `mongodb+srv://denis:2PFIFbNUlrlKlk9N@cluster1.t6p3sge.mongodb.net/?retryWrites=true&w=majority`;
-    await mongoose.connect(MONGODB_URI, {useNewUrlParser: true})
+    await mongoose.connect(keys.MONGODB_URI, {useNewUrlParser: true})
     
     app.listen(PORT, () => {
       console.log(`Server is running on port ${PORT}`)

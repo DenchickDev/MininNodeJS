@@ -23,7 +23,8 @@ const hbs = exphbs.create({
   extname: 'hbs',
   runtimeOptions: {
     allowProtoPropertiesByDefault: true
-  }
+  },
+  helpers: require('./utils/hbs-helpers')
 })
 
 const store = MongoStore({

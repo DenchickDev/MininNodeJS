@@ -1,5 +1,5 @@
 const multer = require('multer');
-
+// test
 const storage = multer.diskStorage({
     // куда будем складывать файл
     destination(req, file, cb) {
